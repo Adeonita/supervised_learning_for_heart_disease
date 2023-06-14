@@ -25,9 +25,15 @@ class Database:
 
         return test
     
-    def __set_statically_train_test_data(self):
-        amout_lines_to_train = ceil(self.dataframe_size * 70 / 100)
-        amout_lines_to_test = int(self.dataframe_size * 30 / 100)
+    def __get_total_lines_by_percentage(self, value, percentage, use_ceil=False): #vale criar esse método?
+        if use_ceil == True:
+            return ceil((value * percentage) / 100)
+
+        return int((value * percentage) / 100)
+    
+    def __set_statically_train_test_data(self): 
+        amout_lines_to_train = self.__get_total_lines_by_percentage(self.dataframe_size,70)
+        amout_lines_to_test = self.__get_total_lines_by_percentage(self.dataframe_size,30, True)
 
         train = self.dataframe.head(amout_lines_to_train)
         test = self.dataframe.tail(amout_lines_to_test)
