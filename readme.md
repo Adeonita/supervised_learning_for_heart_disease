@@ -14,9 +14,9 @@ Utilização do banco de dados Cliveland para executar os seguites experimentos 
 
 ## Requisitos
 - [math 3.6.2](https://matplotlib.org/stable/index.html#installation)
-- [python 3.8.10](https://docs.python.org/3/using/unix html#getting-and-installing-the-latest-version-of-python)
+- [python 3.8.10](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
 - [sklearn 1.2.2](https://pypi.org/project/sklearn/)
-
+- [pandas 0.25.3](https://pandas.pydata.org/docs/getting_started/install.html#installing-from-pypi)
 ## Descrição do Dataset:
 
 É um dataset rotulado, tendo o atributo target como rótulo. O target tem valor 0 quando não há presença de doença cardíaca e 1 quando há presença de doença cardíaca.  

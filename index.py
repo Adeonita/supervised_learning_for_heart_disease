@@ -1,6 +1,7 @@
-from src.database import Database
+"""entrypoint"""
+from src.database import Dataset
 
-data = Database('heart.csv')
+data = Dataset('heart.csv')
 dinamic_train_data = data.get_dinamically_train_data()
 dinamic_test_data = data.get_dinamically_test_data()
 
