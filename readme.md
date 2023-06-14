@@ -13,10 +13,13 @@ Utilização do banco de dados Cliveland para executar os seguites experimentos 
 5) Execute os testes com a rede neural treinada medindo, no mínimo, acurácia e precisão.
 
 ## Requisitos
-- [math 3.6.2](https://matplotlib.org/stable/index.html#installation)
+- [sklearn 1.2.2](https://pypi.org/project/sklearn)
 - [python 3.8.10](https://docs.python.org/3/using/unix.html#getting-and-installing-the-latest-version-of-python)
-- [sklearn 1.2.2](https://pypi.org/project/sklearn/)
 - [pandas 0.25.3](https://pandas.pydata.org/docs/getting_started/install.html#installing-from-pypi)
+- [matplotlib 3.6.2](https://matplotlib.org/stable/index.html#installation)
+- [scikit-learn 1.2.2](https://scikit-learn.org/stable/install.html#installing-scikit-learn)
+- [ubuntu 20.04.02](https://ubuntu.com/download/desktop)
+- [visual studio code 1.78.2 ](https://code.visualstudio.com/download)
 ## Descrição do Dataset:
 
 É um dataset rotulado, tendo o atributo target como rótulo. O target tem valor 0 quando não há presença de doença cardíaca e 1 quando há presença de doença cardíaca.  
