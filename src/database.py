@@ -2,6 +2,7 @@
 from math import ceil
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 class Dataset:
     """Class representing a Dataset"""
@@ -13,27 +14,17 @@ class Dataset:
         self.dataframe_size = len(self.dataframe.index)
 
     def __set_dinamically_train_test_data(self):
-        train, test = train_test_split(self.dataframe,
+        x = self.dataframe.drop(columns=['target'])
+        y = self.dataframe['target']
+
+        x_train, x_test, y_train, y_test = train_test_split(
+                                       x, y,
                                        test_size=0.3,
                                        train_size=0.7,
                                        random_state=42
                                     )
 
-        return [train, test]
-
-    def get_dinamically_train_data(self):
-        """Method to get dinamically train data"""
-
-        train, _ = self.__set_dinamically_train_test_data()
-
-        return train
-
-    def get_dinamically_test_data(self):
-        """Method to get dinamically test data"""
-
-        _, test = self.__set_dinamically_train_test_data()
-
-        return test
+        return [x_train, x_test, y_train, y_test]
 
     def __get_total_lines_by_percentage(self, value, percentage, use_ceil=False):
         if use_ceil is True:
@@ -50,15 +41,45 @@ class Dataset:
 
         return [train, test]
 
-    def get_statically_train_data(self):
+    def get_dinamically_x_train_data(self):
+        """Method to get dinamically train data"""
+
+        x_train, _, _, _ = self.__set_dinamically_train_test_data()
+
+        return x_train
+
+    def get_dinamically_y_train_data(self):
+        """Method to get dinamically y train data"""
+
+        _, _, y_train, _ = self.__set_dinamically_train_test_data()
+
+        return y_train
+
+    def get_dinamically_x_test_data(self):
+        """Method to get dinamically x test data"""
+
+        _, x_test, _, _ = self.__set_dinamically_train_test_data()
+
+        return x_test
+
+    def get_dinamically_y_test_data(self):
+        """Method to get dinamically y test data"""
+
+        _, _, _, y_test = self.__set_dinamically_train_test_data()
+
+        return y_test
+
+    # TODO: pegar o y estático
+    def get_statically_x_train_data(self):
         """Method to get statically train data"""
 
         train, _ = self.__set_statically_train_test_data()
 
         return train
 
-    def get_statically_test_data(self):
+    def get_statically_x_test_data(self):
         """Method to get statically test data"""
         _, test = self.__set_statically_train_test_data()
 
         return test
+
