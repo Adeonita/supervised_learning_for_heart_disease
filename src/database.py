@@ -83,3 +83,30 @@ class Dataset:
 
         return test
 
+    def __fit_transform_x_train_test(self):
+        standard_scaler = StandardScaler()
+
+        x_train = standard_scaler.fit_transform(self.get_dinamically_x_train_data())
+        x_test =  standard_scaler.transform(self.get_dinamically_x_test_data())
+
+        return [x_train, x_test]
+
+    def fit_transform_dinamically_x_train_data(self):
+        """Method to reduce train values"""
+
+        x_train, _ = self.__fit_transform_x_train_test()
+
+        return x_train
+
+    def fit_transform_dinamically_x_test_data(self):
+        """Method to reduce train values"""  
+
+        _, x_test = self.__fit_transform_x_train_test()
+
+        return x_test
+
+    def fit_transform_statically_x_train_data(self):
+        """Method to reduce train values"""
+
+    def fit_transform_statically_x_test_data(self):
+        """Method to reduce train values""" 
