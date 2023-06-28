@@ -15,7 +15,7 @@ knn.classifier(static_x_train_data, static_y_train_data)
 y_pred = knn.test_prevision(static_x_test_data)
 
 acuracy = knn.get_acuracy(static_y_test_data, y_pred)
-error_rate = knn.get_error_rate(static_x_test_data, y_pred)
+error_rate = knn.get_error_rate(static_y_test_data, y_pred)
 
 print(f"Acuracia: {acuracy} ≈ {round(acuracy,2)}")
 print(f"Taxa de erro: {error_rate} ≈ {round(error_rate,2)}")
