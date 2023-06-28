@@ -1,4 +1,5 @@
 """Class representing a Dataset"""
+import random
 from math import ceil
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -8,10 +9,12 @@ class Dataset:
     """Class representing a Dataset"""
 
     dataframe = pd.DataFrame()
+    random_state = None
 
     def __init__(self, file_path):
         self.dataframe = pd.read_csv(file_path)
         self.dataframe_size = len(self.dataframe.index)
+        self.random_state = random.randint(1,42)
 
     def __set_dinamically_train_test_data(self):
         x = self.dataframe.drop(columns=['target'])
@@ -21,7 +24,7 @@ class Dataset:
                                        x, y,
                                        test_size=0.3,
                                        train_size=0.7,
-                                       random_state=42
+                                       random_state=self.random_state
                                     )
 
         return [x_train, x_test, y_train, y_test]
