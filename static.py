@@ -19,6 +19,5 @@ error_rate = knn.get_error_rate(static_y_test_data, y_pred)
 
 print(f"Distance: {knn.distance}")
 print(f"n_neighbors: {knn.n_neighbors}")
-print(f"Random State: {data.random_state}")
 print(f"Acuracia: {acuracy} ≈ {round(acuracy,2)}")
 print(f"Taxa de erro: {error_rate} ≈ {round(error_rate,2)}")
